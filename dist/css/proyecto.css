@@ -1,0 +1,86 @@
+.inicio_Card{
+    box-shadow: 0 10px 20px -10px;
+    margin-bottom: 15px;
+}
+
+.register-logo {
+    color: white;
+    font-size: 40px;
+    text-shadow: black 2px 2px;
+}
+
+
+.no-scroll {
+    overflow-x:scroll;
+    overflow-y:hidden;
+}
+
+.card-body {
+    margin: 10px auto;
+    box-shadow: 0px 0px 10px -5px #5558ec;
+}
+
+.card-mapa {
+    margin: 10px auto;
+    box-shadow: 0px 0px 10px -5px #5558ec;
+    height: 600px;
+}
+
+.card-centros {
+    margin: 10px auto;
+    box-shadow: 0px 5px 15px -5px #020202;
+    padding: 10px;
+    background-color: #b6b4b41c;
+}
+
+.card-planificicacion {
+    margin: 10px auto;
+    box-shadow: 0px 5px 15px -5px #020202;
+    padding: 10px;
+}
+
+.caja {
+    display: flex;
+    justify-content: center;
+}
+
+.caja-marginTop{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btnRegister {
+    border-radius: 5%;
+    margin: 0 1px;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0px 10px 15px -5px #000000;
+}
+
+
+ .icons {
+    width: 24px !important; 
+    height: 24px !important;
+}
+
+.icons-logo{
+    width: 32px;
+    height: 32px;
+}
+
+.icons-logo-register {
+    width: 64px;
+    height: 64px;
+}
+
+/* .box- {
+    height: 50px;
+    width: 50px;
+    border-radius: 50% 50% 0 50%;
+    background-color: red;
+    margin: 0 auto;
+    box-shadow: inset 0px 15px 10px -5px #000000;
+ } */
+
+ 

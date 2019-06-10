@@ -137,6 +137,10 @@
                         <!-- ============================================================== -->
                        
                         <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
@@ -148,7 +152,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Configuracion de cuenta</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item"  href="./login.html"><i class="fa fa-power-off m-r-5 m-l-5"></i>Cerrar sesion</a>
+                                <a class="dropdown-item" href="./login.html"><i class="fa fa-power-off m-r-5 m-l-5"></i>Cerrar sesion</a>
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -172,7 +176,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./index.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/dashboard.png" alt=""></i><span class="hide-menu">Inicio</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./planificacion.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/plan.png" alt="" srcset=""></i><span class="hide-menu">Planificar</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link active" href="./centros.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/hospital.png" alt="" srcset=""></i><span class="hide-menu">Centros</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./centros.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/hospital.png" alt="" srcset=""></i><span class="hide-menu">Centros</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="./map.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/gps.png" alt="" srcset=""></i><span class="hide-menu">Mapa</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
@@ -180,8 +184,11 @@
                                 <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link " href="./informacion.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/information.png" alt="" srcset=""></i><span class="hide-menu">Sobre Cognitive</span></a></li>                        
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link " href="./informacion.html" aria-expanded="false"><i><img class="icons" src="./dist/css/icons/brain/information.png" alt="" srcset=""></i><span class="hide-menu">Charts</span></a></li>
 
+
+                    </ul>
+                </nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -199,12 +206,12 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Centros</h4>
+                        <h4 class="page-title">Grafica</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Centros</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Grafica</li>
                                 </ol>
                             </nav>
                         </div>
@@ -219,47 +226,53 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
+                <!-- Sales Cards  -->
                 <!-- ============================================================== -->
                 <div class="row el-element-overlay">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="card card-centros">
-                                <div class="el-card-item">
-                                    <div class="el-card-avatar el-overlay-1"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpmlYRCevdJcfy8DJ7XZXOI4-KN1LRGlPZfb2RYEWIWcpIbRb-" alt="user" />
-                                        <div class="el-overlay">
-                                            <ul class="list-style-none el-info">
-                                                <li class="el-item" ><a class="btn default btn-outline  el-link"><i ><img class="icons" src="./dist/css/icons/brain/address.png" alt="" srcset="" ></i></a></li>
-                                                <li class="el-item"><a class="btn default btn-outline el-link" data-toggle="modal" data-target="#Modal3"><i><img class="icons" src="./dist/css/icons/brain/help.png" alt="" srcset=""></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="el-card-content">
-                                        <h4 class="m-b-0">Instituto Oncologico</h4> <span class="text-muted">76050515</span>
-                                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-centros">
+                            <div class="el-card-item">
+                                <div class="el-card-content">
+                                    <h4 class="m-b-0">Aciertos</h4> <span class="text-muted"></span>
+                                </div>
+                                <div class="el-card-avatar ">
+                                    <canvas id="myChart1" width="400" height="400"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Oncologico</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!-- <img src="./assets/images/background/img5.jpg" width="100% "> -->
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-centros">
+                            <div class="el-card-item">
+                                <div class="el-card-content">
+                                    <h4 class="m-b-0">Fallos por omision</h4> <span class="text-muted"></span>
+                                </div>
+                                <div class="el-card-avatar ">
+                                    <canvas id="omision" width="400" height="400"></canvas>
                                 </div>
                             </div>
                         </div>
-                    
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-centros">
+                            <div class="el-card-item">
+                                <div class="el-card-content">
+                                    <h4 class="m-b-0">Fallos</h4> <span class="text-muted"></span>
+                                </div>
+                                <div class="el-card-avatar ">
+                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
+                   
+                   
+                
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -267,6 +280,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
+
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -293,8 +307,91 @@
     <script src="./dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="./dist/js/custom.min.js"></script>
-    <script src="./assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-    <script src="./assets/libs/magnific-popup/meg.init.js"></script>
+    <script src="./graficos/js/Chart.min.js"></script>
+
+    <script>
+        var ctx = document.getElementById('omision').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [20, 6],
+                    backgroundColor: [
+                        'rgba(255, 162, 0, 1)',
+                        'rgba(255, 162, 0, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 162, 0, 1)',
+                        'rgba(255, 162, 0, 0.2)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+            }
+        });
+        var ctx = document.getElementById('myChart1').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [10, 6],
+                    backgroundColor: [
+                        'rgba(0, 152, 0, 1)',
+                        'rgba(0, 152, 0, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(0, 152, 0, 1)',
+                        'rgba(0, 152, 0, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+            }
+        });
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [7, 6],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 0.2)',
+                        // 'rgba(255, 206, 86, 0.2)',
+                        // 'rgba(75, 192, 192, 0.2)',
+                        // 'rgba(153, 102, 255, 0.2)',
+                        // 'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        // 'rgba(255, 206, 86, 1)',
+                        // 'rgba(75, 192, 192, 1)',
+                        // 'rgba(153, 102, 255, 1)',
+                        // 'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                // scales: {
+                //     yAxes: [{
+                //         ticks: {
+                //             beginAtZero: true
+                //         }
+                //     }]
+                // }
+            }
+        });
+        </script>
 </body>
 
 </html>

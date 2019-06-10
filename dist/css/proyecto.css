@@ -74,6 +74,12 @@
     height: 64px;
 }
 
+.img-card {
+    width: 25rem; 
+    height: 10rem !important;
+}
+
+
 /* .box- {
     height: 50px;
     width: 50px;

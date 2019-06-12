@@ -9,12 +9,14 @@
     text-shadow: black 2px 2px;
 }
 
-
 .no-scroll {
     overflow-x:scroll;
     overflow-y:hidden;
 }
 
+.transicion {
+    transition: color .3s ease-in;
+}
 .center {
     display: flex;
     justify-content: center;
@@ -82,6 +84,35 @@
 .img-card {
     width: 25rem; 
     height: 10rem !important;
+}
+
+.tiempo {
+    font-size: .6rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.tiempoDato {
+    font-size: .6rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    color: rgb(196, 50, 10)
+}
+
+
+
+.tiempo-div {
+    margin-bottom: 10px;
+
+}
+
+.titulos-resultados {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
 }
 
 

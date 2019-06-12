@@ -228,26 +228,32 @@
                 <!-- ============================================================== -->
                 <!-- Sales Cards  -->
                 <!-- ============================================================== -->
-                <div class="row el-element-overlay">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card card-centros">
-                            <div class="el-card-item">
-                                <div class="el-card-content">
-                                    <h4 class="m-b-0">Aciertos</h4> <span class="text-muted"></span>
-                                </div>
-                                <div class="el-card-avatar ">
-                                    <canvas id="myChart1" width="400" height="400"></canvas>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-md-12 card-centros">
+                        <h6 class="center">Porcentaje</h6>
+                        <div class="progress" style="height: 2rem;">
+                            <div class="progress-bar  bg-info center " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                            
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="card card-centros">
                             <div class="el-card-item">
                                 <div class="el-card-content">
-                                    <h4 class="m-b-0">Fallos por omision</h4> <span class="text-muted"></span>
+                                    <h6 class="m-b-0 center">Aciertos</h6> <span class="text-muted"></span>
+                                </div>
+                                <div class="el-card-avatar ">
+                                    <canvas id="aciertos" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card card-centros">
+                            <div class="el-card-item">
+                                <div class="el-card-content">
+                                    <h6 class="m-b-0 center">Fallos por omision</h6> <span class="text-muted"></span>
                                 </div>
                                 <div class="el-card-avatar ">
                                     <canvas id="omision" width="400" height="400"></canvas>
@@ -256,23 +262,21 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="card card-centros">
                             <div class="el-card-item">
-                                <div class="el-card-content">
-                                    <h4 class="m-b-0">Fallos</h4> <span class="text-muted"></span>
+                                <div class="el-card-content ">
+                                    <h6 class="m-b-0 center">Fallos</h6> <span class="text-muted"></span>
                                 </div>
                                 <div class="el-card-avatar ">
-                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                    <canvas id="fallos" width="400" height="400"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                   
-                   
-                   
-                
+                  
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

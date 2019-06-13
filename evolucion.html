@@ -206,12 +206,12 @@
              <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Resultados</h4>
+                        <h4 class="page-title">Evolucion</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Resultado</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Evolucion </li>
                                 </ol>
                             </nav>
                         </div>
@@ -229,83 +229,9 @@
                 <!-- Sales Cards  -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-12 card-centros">
-                        <h6 class="center">Porcentaje</h6>
-                        <div class="progress" style="height: 2rem;">
-                            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress" style="width:0%">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                        <div class="card card-centros">
-                            <div class="el-card-item">
-                                <div class="el-card-content">
-                                    <h6 class="m-b-0 titulos-resultados">Aciertos</h6> <span class="text-muted"></span>
-                                </div>
-                                <div class="el-card-avatar ">
-                                    <canvas id="aciertos" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                        <div class="card card-centros">
-                            <div class="el-card-item">
-                                <div class="el-card-content ">
-                                    <h6 class="m-b-0 titulos-resultados">Fallos</h6> <span class="text-muted"></span>
-                                </div>
-                                <div class="el-card-avatar ">
-                                    <canvas id="fallos" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                        <div class="card card-centros">
-                            <div class="el-card-item">
-                                <div class="el-card-content">
-                                    <h6 class="m-b-0 titulos-resultados">Fallos por omision</h6> <span class="text-muted"></span>
-                                </div>
-                                <div class="el-card-avatar ">
-                                    <canvas id="omision" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-                        <div class="card card-centros">
-                            <div class="el-card-item">
-                                <div class="el-card-content">
-                                    <h6 class="m-b-0 titulos-resultados">Tiempos</h6> <span class="text-muted"></span>
-                                </div>
-                                <div class="el-card-avatar ">
-                                    <div class="tiempo-div">
-                                            <p id="tiempoTotal" class="tiempoDato">0:0</p>
-                                            <h1 class="tiempo">Tiempo Total de Sesion</h1>
-                                    </div>
-                                    <div class="tiempo-div">
-                                            <p id="tiempoReaccionMedia" class="tiempoDato">0:0</p>
-                                            <h1 class="tiempo">Tiempo Medio de Reaccion </h1>
-                                    </div>
-                                    <div class="tiempo-div">
-                                            <p id="tiempoMaximo" class="tiempoDato">0:0</p>
-                                            <h1 class="tiempo">Tiempo Maximo</h1>
-                                    </div>
-                                    <div class="tiempo-div">
-                                            <p id="tiempoMinomo" class="tiempoDato">0:0</p>
-                                            <h1 class="tiempo">Tiempo Minimo</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                        <canvas id="omision" width="400" height="400"></canvas>
+                    
                 </div>
-                  
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -341,7 +267,7 @@
     <!--Custom JavaScript -->
     <script src="./dist/js/custom.min.js"></script>
     <script src="./graficos/js/Chart.min.js"></script>
-    <script src="./graficos/js/graficos.js"></script>
+    <script src="./graficos/js/evolucion.js"></script>
 </body>
 
 </html>

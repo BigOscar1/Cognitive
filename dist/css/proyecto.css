@@ -99,9 +99,7 @@
     margin: 0;
     display: flex;
     justify-content: center;
-    color: rgb(196, 50, 10);
-    font-size: .8rem;
-    font-weight: 1000;
+    color: rgb(196, 50, 10)
 }
 
 

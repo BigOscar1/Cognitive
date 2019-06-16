@@ -7,9 +7,67 @@ let control = [];
 let nom = [];
 let contador = 0;
 let aciertos = 0;
+let fallidos = 0;
+let omitidos = 0;
+
+let cronometro = 0;
+let tiempo = 0;
+
+let cronometroT = 0;
+let tiempoT = 0;
+let tiempoMax = 0;
+let tiempoMin = 0;
+let promedioT = 0;
+
+
+
+
+
 
 
 //funciones
+
+function init() {
+    cronometro = setInterval(function() { timer() }, 1000);
+    console.log(cronometro);
+}
+ 
+  function timer() {
+       tiempo++;
+       console.log(tiempo);
+  }
+ 
+  function reset() {
+        tiempo = 0;
+  }
+ 
+  function stop() {
+    clearInterval(cronometro);
+    console.log('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
+                tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
+    alert('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
+    tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
+  }
+
+  function initTime(){
+    cronometroT = setInterval(function() { timerTime() },1000);
+  }
+
+  function timerTime(){
+      tiempoT++;
+      console.log('Time:',tiempoT);
+  }
+
+  function resetTime(){
+    tiempoT = 0;
+  }
+
+  function stopTime(){
+      clearInterval(cronometroT)
+  }
+
+
+
 const nombres = async () => {
     const urlNombres = await fetch('https://uinames.com/api/?region=colombia&amount=10');
     const datos = await urlNombres.json();
@@ -133,8 +191,8 @@ const confimar = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     datos();
-    
     nivel();
+    init();
 });
 
 
@@ -154,14 +212,30 @@ function opcion(obj) {
 
         }
         console.log(respuesta);
-        respuesta ? (contador++,aciertos++,alert('Correcto')) : (contador++,alert('Fallido'));
-        if(contador === 4){
-            alert('juego terminado')
-        }else{
-            reiniciar()
+        respuesta ? (contador++, aciertos++, alert('Correcto')) : (fallidos++, contador++, alert('Fallido'));
+        if (contador === 5) {
+            alert('juego terminado');
+            promedio();
+            stop();
+        } else {
+            promedio();
+            reiniciar();
         }
 
 
+    } else if (res === 'omitir') {
+            contador++;
+        if (contador === 5) {
+            omitidos++;
+            alert('juego terminado');
+            promedio();
+            stop();
+        } else {
+            omitidos++;
+            promedio();
+            reiniciar();
+        }
+    
     } else {
         for (let i = 0; i < control.length; i++) {
             if (nombreSelec === control[i]) {
@@ -172,39 +246,72 @@ function opcion(obj) {
             }
 
         }
-        respuesta ? (contador++,alert('Fallido')) : (contador++,aciertos++,alert('Correcto'));
-        if(contador === 4){
-            alert('juego terminado')
+        respuesta ? (fallidos++,contador++,alert('Fallido')) : (contador++,aciertos++,alert('Correcto'));
+        if(contador === 5){
+            alert('juego terminado');
+            promedio();
+            stop();
         }else{
-            reiniciar()
+            promedio();
+            reiniciar();
         }
     }
 
-   
+
 
 }
 
-function nivel(){
-    setTimeout(() => {
-        // visibility: hidden
-        ocultar.style.display = 'none';
-        nameSelct.style.display = 'block';
-        const nombre = confimar();
-        nameSelct.innerHTML = `<div class="item1">${nombre}</div>
-        <div class="item1" id="confirmar" onclick="opcion(this)">SI</div>
-        <div class="item1" id="negar" onclick="opcion(this)">NO</div>`
-    }, 5000);
+function nivel() {
+
+    try {
+        setTimeout(() => {
+            // visibility: hidden
+            ocultar.style.display = 'none';
+            nameSelct.style.display = 'block';
+            const nombre = confimar();
+            nameSelct.innerHTML = `<div class="item1">${nombre}</div>
+            <div class="item1" id="confirmar" onclick="opcion(this)">SI</div>
+            <div class="item1" id="negar" onclick="opcion(this)">NO</div>
+            <div class="item1" id="omitir" onclick="opcion(this)">OMITIR</div>`;
+            initTime();
+        }, 5000);
+        
+    } catch (error) {
+        console.log(error);
+        initTime();
+        
+    }
+
 }
 
-function reiniciar(){
-    
+function reiniciar() {
+    resetTime();
     nombreSelec = '';
     nom = [];
     control = [];
     datos();
-    setTimeout(() => { 
+    setTimeout(() => {
         nameSelct.style.display = 'none';
         ocultar.style.display = 'block';
         nivel();
     }, 1000);
+}
+
+function promedio(){
+    stopTime();    
+    if((tiempoMax !== 0)  && (tiempoMin !== 0)){
+        if(tiempoT > tiempoMax ){
+            tiempoMax = tiempoT;
+        }else if(tiempoT < tiempoMin){
+            tiempoMin = tiempoT;
+        }
+
+    }else{
+        tiempoMax = tiempoT;
+        tiempoMin = tiempoT;
+    }
+
+    console.log('max:',tiempoMax,'min:',tiempoMin);
+    
+
 }

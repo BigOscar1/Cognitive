@@ -67,6 +67,12 @@ function iniciarJuego() {
         dato.style.pointerEvents = "auto";
         dato.dataset.valor = carta;
     }
+
+    mostar();
+    setTimeout(() => {
+        ocultar();
+    }, 1500);
+   
 };
 
 function resetearJuego() {
@@ -159,3 +165,25 @@ function resetearJuego() {
         colorCambio(i, 'black', '?');
     }
 };
+
+
+function mostar(){
+    setTimeout(function () {
+        for (let i = 0; i < 16; i++) {
+            const elemento = document.getElementById(`${i}`);
+            const id = elemento.id;
+            const valor = elemento.dataset.valor
+            colorCambio(id, "blue", valor);
+        }
+    }, 200);
+}
+
+function ocultar(){
+    // setTimeout(function () {
+        for (let i = 0; i < 16; i++) {
+            const elemento = document.getElementById(`${i}`);
+            const id = elemento.id;
+            colorCambio(id, "black", '?');
+        }
+    // }, 1000);
+}

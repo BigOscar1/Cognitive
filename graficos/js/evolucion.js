@@ -9,13 +9,9 @@ generarGrafica = (resultados) => {
         data: {
             datasets: [{
                 label: 'Resultados',
-                data: function(){
-                    for(let v = 0; v < resultados.length; v++){
-                    valor += resultados[v]+ ',' ;
-                    return [valor.substring()]
-                }},
+                data: [25,40,43,56,50],
                 backgroundColor: [
-                    'rgba(255, 162, 0, 1)',
+                    'rgba(255, 162, 0, 0)',
                     'rgba(255, 162, 0, 1)',
                     'rgba(255, 162, 0, 1)',
                     'rgba(255, 162, 0, 1)',

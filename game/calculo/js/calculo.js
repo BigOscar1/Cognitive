@@ -62,7 +62,7 @@ const generarNumeros = () => {
             <label for="suma"><h4>+</h4></label>
             <img  src="./game/calculo/${numero2}.jpg" width="20" height="20">
             <br>
-            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>`;
+            <div id="div1"></div>`;
             bool = false;
         }
        
@@ -73,7 +73,7 @@ const generarNumeros = () => {
 const numerosDinamicos = ()=>{
     let numeros = '';
     for (let i = 0; i < 10; i++) {
-    numeros+=` <img id="${i}" src="./game/calculo/${i}.jpg" draggable="true" ondragstart="drag(event)" width="20" height="20">`
+    numeros+=` <img id="${i}" src="./game/calculo/${i}.jpg" width="20" height="20">`
     }
     num.innerHTML= numeros;
 }

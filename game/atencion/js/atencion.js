@@ -120,18 +120,17 @@ const llenarDatos = () => {
                 nombre = generateName();
                 control.push(nombre);
                 div += `<div class="item">${nombre}</div>`;
+                
             } else {
                 control.push(nombre);
                 div += `<div class="item">${nombre}</div>`;
             }
 
         }
-
-
     }
 
     randonName.innerHTML = div;
-
+    
 }
 
 const obtenerNombre = async () => {
@@ -212,7 +211,25 @@ function opcion(obj) {
 
         }
         console.log(respuesta);
-        respuesta ? (contador++, aciertos++, alert('Correcto')) : (fallidos++, contador++, alert('Fallido'));
+        respuesta ? (contador++, aciertos++, 
+            Swal.fire({
+                title: 'Correcto',
+                type: 'success',
+                html: 'Bien Hecho',
+                confirmButtonText:'<i class="fa fa-thumbs-up"></i> Listo',
+                showConfirmButton: false,
+                timer: 1000
+            })
+            ) : (fallidos++, contador++, 
+                Swal.fire({
+                    title: 'Fallido',
+                    type: 'error',
+                    html: 'Fallaste',
+                    confirmButtonText:'<i class="fa fa-thumbs-down"></i> Siguiente',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+            );
         if (contador === 5) {
             alert('juego terminado');
             promedio();
@@ -246,7 +263,25 @@ function opcion(obj) {
             }
 
         }
-        respuesta ? (fallidos++,contador++,alert('Fallido')) : (contador++,aciertos++,alert('Correcto'));
+        respuesta ? (fallidos++,contador++,
+            Swal.fire({
+                title: 'Fallido',
+                type: 'error',
+                html: 'Fallaste',
+                confirmButtonText:'<i class="fa fa-thumbs-down"></i> Siguiente',
+                showConfirmButton: false,
+                timer: 1000
+            })
+            ) : (contador++,aciertos++,
+                Swal.fire({
+                    title: 'Correcto',
+                    type: 'success',
+                    html: 'Bien Hecho',
+                    confirmButtonText:'<i class="fa fa-thumbs-up"></i> Listo',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+            );
         if(contador === 5){
             alert('juego terminado');
             promedio();

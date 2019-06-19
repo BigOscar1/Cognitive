@@ -18,10 +18,7 @@ let tiempoT = 0;
 let tiempoMax = 0;
 let tiempoMin = 0;
 let promedioT = 0;
-
-
-
-
+let tiempoPro = 0;
 
 
 
@@ -42,11 +39,25 @@ function init() {
   }
  
   function stop() {
+    let datosAtencion = {
+        Aciertos: aciertos,
+        Fallidos: fallidos,
+        Omitidos: omitidos,
+        TiempoSesion: tiempo,
+        TiempoMaximo: tiempoMax,
+        TiempoMinimo: tiempoMin,
+        TiempoPromedio: tiempoPro
+    }
+    
     clearInterval(cronometro);
+
     console.log('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
                 tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
-    alert('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
-    tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
+    // alert('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
+    // tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
+
+    sessionStorage.setItem('DatosAtencion', JSON.stringify(datosAtencion));
+
   }
 
   function initTime(){
@@ -231,7 +242,19 @@ function opcion(obj) {
                 })
             );
         if (contador === 5) {
-            alert('juego terminado');
+            Swal.fire({
+                title: 'Terminado',
+                imageUrl: './dist/gif/goku.gif',
+                // imageWidth: 400,
+                // imageHeight: 200,   
+                confirmButtonText:'<i class=""></i> Resultados',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            setTimeout(function(){ 
+                location.href = "grafica.html"
+            }, 2000);
+
             promedio();
             stop();
         } else {
@@ -244,7 +267,18 @@ function opcion(obj) {
             contador++;
         if (contador === 5) {
             omitidos++;
-            alert('juego terminado');
+            Swal.fire({
+                title: 'Terminado',
+                imageUrl: './dist/gif/goku.gif',
+                // imageWidth: 400,
+                // imageHeight: 200,   
+                confirmButtonText:'<i class=""></i> Resultados',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            setTimeout(function(){ 
+                location.href = "grafica.html"
+            }, 2000);
             promedio();
             stop();
         } else {
@@ -283,7 +317,18 @@ function opcion(obj) {
                 })
             );
         if(contador === 5){
-            alert('juego terminado');
+            Swal.fire({
+                title: 'Terminado',
+                imageUrl: './dist/gif/goku.gif',
+                // imageWidth: 400,
+                // imageHeight: 200,   
+                confirmButtonText:'<i class=""></i> Resultados',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            setTimeout(function(){ 
+                location.href = "grafica.html"
+            }, 2000);
             promedio();
             stop();
         }else{
@@ -291,10 +336,21 @@ function opcion(obj) {
             reiniciar();
         }
     }
-
-
-
 }
+// window.onclick = function(){
+//     Swal.fire({
+//         title: 'Terminado',
+//         imageUrl: './dist/gif/goku.gif',
+//         // imageWidth: 400,
+//         // imageHeight: 200,   
+//         confirmButtonText:'<i class=""></i> Resultados',
+//         showConfirmButton: false,
+//         timer: 2000
+//     })
+// }
+// setTimeout(function(){ 
+//     window.location = "../../../grafica.html"
+// }, 2000);
 
 function nivel() {
 
@@ -345,8 +401,7 @@ function promedio(){
         tiempoMax = tiempoT;
         tiempoMin = tiempoT;
     }
-
+    tiempoPro = (tiempoMax + tiempoMin)/2;
     console.log('max:',tiempoMax,'min:',tiempoMin);
-    
-
+    console.log('Tiempo Promedio: '+ tiempoPro);
 }

@@ -5,6 +5,12 @@
     let PuntuacionTotal = 0;
     let valor = 0;
 
+  let datos = JSON.parse(sessionStorage.getItem("DatosAtencion"));
+    console.log(datos);
+    datosAciertos[1] = datos.Aciertos; 
+    datosError[1] = datos.Fallidos;
+    datosOmision[1] = datos.Omitidos;
+    
 puntuacion = (bien,mal,omision) => {
     iteraciones = 0;
     if(bien != null || mal != null || omision != null){
@@ -21,7 +27,7 @@ puntuacion = (bien,mal,omision) => {
         datosOmision[0] = omision;
         datosOmision[1] = iteracionesOmision
 
-        PuntuacionTotal = (iteracionesTotaltes * 10)  / (iteracionesTotaltes/datosAciertos[0]) + 5 //tiempo
+        PuntuacionTotal = (iteracionesTotaltes * 20)  / (iteracionesTotaltes/datosAciertos[0]) + 0 //tiempo
        
     }
 }
@@ -35,8 +41,8 @@ tiempo = (total,promedio,maximo,minimo) => {
 
 
 
-puntuacion(4,4,2)
-tiempo(10,5,3,4)
+puntuacion(datosAciertos[1],datosError[1],datosOmision[1]);
+tiempo(datos.TiempoSesion,datos.TiempoPromedio,datos.TiempoMaximo,datos.TiempoMinimo);
 
 
 animacion = () => {

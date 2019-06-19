@@ -23,6 +23,10 @@ body {
 
 }
 
+.ocultar {
+    display: none;
+}
+
 .item {
     text-align: center;
     background-color: hsla(234, 100%, 70%, 0.8);
@@ -36,7 +40,6 @@ body {
     text-shadow: .8px .8px hsla(0, 0%, 0%, 0.8);
     animation: beat .5s infinite alternate ease-in-out;
     border-radius: 5%;
-
 }
 
 @keyframes beat {
@@ -118,3 +121,4 @@ body {
     animation: beat .5s infinite alternate ease-in-out;    
     box-shadow: none;
 }
+

@@ -239,7 +239,18 @@ function comprobar() {
         // document.getElementById("juego").innerHTML = "GANASTE";(
         stop();
         intentos = true;
-        alert('GANASTE');
+        Swal.fire({
+            title: 'Terminado',
+            imageUrl: './dist/gif/goku.gif',
+            // imageWidth: 400,
+            // imageHeight: 200,   
+            confirmButtonText:'<i class=""></i> Resultados',
+            showConfirmButton: false,
+            timer: 2000
+        })
+        setTimeout(function(){ 
+            location.href = "grafica.html"
+        }, 2000);
         omitidos = -1;
         for (let i = 0; i < 16; i++) {
             cartas[parseInt(i)].seleccion = false;

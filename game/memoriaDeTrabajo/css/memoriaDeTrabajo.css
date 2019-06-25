@@ -1,8 +1,14 @@
+*:root {
+    margin: 0;
+}
+
 #juego {
     opacity: 0.3;
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 50%
 }
+
+
 
 table {
     width: 100%;
@@ -22,7 +28,16 @@ td {
     font-size: 40px;
     text-align: center;
     font-style: italic;
+    animation: beat 1.5s infinite alternate ease-in-out;
 }
+
+@keyframes beat {
+    to {
+      transform: rotate(0deg) scale(1.00); 
+      border-radius: 5%;
+      border-color:hsla(240,0%,50%,0.3);
+    }
+  }
 
 input {
     width: 90px;
@@ -39,3 +54,5 @@ input {
         height: 50%;
     }
   }
+
+

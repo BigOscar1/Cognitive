@@ -26,78 +26,94 @@
 <body>
     <div class="main-wrapper">
         <div class="preloader">
-                <div class="lds-ripple">
-                        <div class="lds-pos"></div>
-                        <div class="lds-pos"></div>
-                    </div>
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
         </div>
         <div class="container-fluid">
-                <div class="card">
-                    <form action="" class="form-horizontal">
-                            <div class="card-body">
-                                    <h4 class="card-title">Registro</h4>
-                                    <div class="form-group">
-                                        <label for="hue-demo">Nombre</label>
-                                        <input type="text" id="hue-demo" class="form-control demo" placeholder="Ingrese su Nombre" data-control="hue" value="" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="position-bottom-left">Apellidos</label>
-                                        <input type="text" id="position-bottom-left" class="form-control demo" placeholder="Ingrese sus Apellidos" data-position="bottom left" value="" >
-                                    </div>
-                                    <div class="form-group row">
-                                            <label class="col-md-3">Seleccione su genero</label>
-                                            <div class="col-md-9">
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" >
-                                                    <label class="custom-control-label" for="customControlValidation1">Hombre</label>
-                                                </div>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" >
-                                                    <label class="custom-control-label" for="customControlValidation2">Mujer</label>
-                                                </div>
-                                                <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked">
-                                                        <label class="custom-control-label" for="customControlValidation3">No quiero decirlo</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="position-top-right">C.I. </label>
-                                                <input type="number" id="position-top-right" placeholder="Carnet de Identidad" class="form-control demo" data-position="top right" value="">
-                                            </div>
-                                            <label>Fecha de Nacimiento</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control"  id="datepicker-autoclose" placeholder="dd/mm/yyyy">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                </div>
-                                            </div>
-                                    <div class="form-group">
-                                            <label for="position-top-right">Correo </label>
-                                            <input type="email" id="position-top-right" placeholder="Ingrese su Correo Electronico" class="form-control demo" data-position="top right" value="">
-                                        </div>
-                                    <div class="form-group row">
-                                            <label class="col-md-3">Fotografia</label>
-                                            <div class="col-md-9">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="validatedCustomFile" >
-                                                    <label class="custom-file-label" for="validatedCustomFile">Seleccione un archivo...</label>
-                                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="caja">
-                                            <button type="button" class="btn btn-danger btn-lg btnRegister" id="cancelar">Cancelar</button>
-
-                                            <button type="submit" class="btn btn-success btn-lg btnRegister">Guardar</button>
-                                    </div>
+            <div class="card">
+                <form action="" class="form-horizontal" id="registro">
+                    <div class="card-body">
+                        <h4 class="card-title">Registro</h4>
+                        <div class="form-group">
+                            <label for="hue-demo">Nombres</label>
+                            <input type="text" id="hue-demo" class="form-control demo" placeholder="Nombres"
+                                data-control="hue" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position-bottom-left">Apellidos</label>
+                            <input type="text" id="position-bottom-left" class="form-control demo"
+                                placeholder="Ingrese sus Apellidos" data-position="bottom left" value="" required>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Seleccione su genero</label>
+                            <div class="col-md-9">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation1"
+                                        name="radio-stacked" value="Hombre" checked>
+                                    <label class="custom-control-label" for="customControlValidation1">Hombre</label>
                                 </div>
-
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2"
+                                        name="radio-stacked" value="Mujer">
+                                    <label class="custom-control-label" for="customControlValidation2">Mujer</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation3"
+                                        name="radio-stacked" value="No quiero decirlo">
+                                    <label class="custom-control-label" for="customControlValidation3">No quiero
+                                        decirlo</label>
+                                </div>
                             </div>
-                    </form>
-                </div>  
+                        </div>
+                        <div class="form-group">
+                            <label for="position-top-right">C.I. </label>
+                            <input type="text" id="position-top-right" placeholder="Carnet de Identidad"
+                                class="form-control demo" data-position="top right" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position-top-right">Telefono </label>
+                            <input type="number" id="telefono" placeholder="Telefono"
+                                class="form-control demo" data-position="top right" value="" required>
+                        </div>
+                        <label>Fecha de Nacimiento</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="datepicker-autoclose" placeholder="dd/mm/yyyy"
+                                required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="position-top-right">Correo </label>
+                            <input type="email" id="position-top" placeholder="Ingrese su Correo Electronico"
+                                class="form-control demo" data-position="top right" value="" required>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Fotografia</label>
+                            <div class="col-md-9">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile">
+                                    <label class="custom-file-label" for="validatedCustomFile">Seleccione un
+                                        archivo...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caja">
+                            <button type="button" class="btn btn-danger btn-lg btnRegister"
+                                id="cancelar">Cancelar</button>
+
+                            <button type="submit" class="btn btn-success btn-lg btnRegister">Guardar</button>
+                        </div>
+                    </div>
+
+            </div>
+            </form>
+        </div>
     </div>
-       
+
     <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="./assets/libs/popper.js/dist/umd/popper.min.js"></script>
@@ -107,19 +123,25 @@
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
+        $('[data-toggle="tooltip"]').tooltip();
+        $(".preloader").fadeOut();
 
-    jQuery('.mydatepicker').datepicker();
+        jQuery('.mydatepicker').datepicker();
         jQuery('#datepicker-autoclose').datepicker({
             autoclose: true,
             todayHighlight: true
         });
 
-    $('#cancelar').click(function(){
-        window.location = "./login.html"
-    })
+        $('#cancelar').click(function () {
+            window.location = "./login.html"
+        })
     </script>
+
+    <script src="./app/conexion/conexion.js"></script>
+    <script src="./app/mod1/interfaceR.js"></script>
+    <script src="./app/mod1/appR.js"></script>
+
+
 </body>
 
 </html>

@@ -50,20 +50,20 @@
                         </span>
                     </div>
                     <!-- Form -->
-                    <form class="form-horizontal m-t-20" id="loginform" action="index.html">
+                    <form class="form-horizontal m-t-20" id="loginform" action="">
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i><img class="icons" src="./dist/css/icons/brain/login.png" alt="" srcset=""></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1" required="">
+                                    <input type="text" class="form-control form-control-lg" id="login" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1" required="">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i><img  class="icons" src="./dist/css/icons/brain/password.png" alt="" srcset=""></i></span>
                                     </div>
-                                    <input type="password" class="form-control form-control-lg" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1" required="">
+                                    <input type="password" class="form-control form-control-lg" id="pass" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon1" required="">
                                 </div>
                             </div>
                         </div>
@@ -157,6 +157,10 @@
         $("#loginform").fadeIn();
     });
     </script>
+    <script src="./app/conexion/conexion.js"></script>
+    <script src="./app/mod2/interfaceL.js"></script>
+    <script src="./app/mod2/appL.js"></script>
+
 
 </body>
 

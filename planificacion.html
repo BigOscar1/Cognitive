@@ -275,34 +275,14 @@
                                 <select class="select2 form-control m-t-15" multiple="multiple"
                                     style="height: 36px;width: 100%;">
                                     <optgroup label="Percepcion">
-                                        <option value="AZ">Korsakoff lvl1</option>
-                                        <option value="CO">Korsakoff lvl2</option>
+                                        <option value="AZ">Memoria 1</option>
+                                        <option value="CO">Memoria 2</option>
                                     </optgroup>
-                                    <optgroup label="Espacio Tiempo">
-                                        <option value="AL">Hipocampo</option>
-                                        <option value="AR">Other 1</option>
-                                        <option value="IL">Other 2</option>
-                                    </optgroup>
-                                    <optgroup label="Percepcion">
-                                        <option value="CT">Other 3</option>
-                                    </optgroup>
-                                    <optgroup label="Memoria a largo Plazo">
-                                            <option value="CT">Other 4</option>
-                                    </optgroup>
-                                    <optgroup label="Lenguaje">
-                                            <option value="CT">Other 5</option>
-                                    </optgroup>
-                                    <optgroup label="Funciones Ejecutivas">
-                                            <option value="CT">Other 6</option>
-                                    </optgroup>
-                                    <optgroup label="Atencion">
-                                            <option value="CT">Other 7</option>
-                                    </optgroup>
-                                    <optgroup label="Memoria de Trabajo">
-                                            <option value="CT">Other 8</option>
+                                    <optgroup label="Agilidad">
+                                        <option value="AL">Hetrix</option>
                                     </optgroup>
                                     <optgroup label="Calculo">
-                                            <option value="CT">Other 9</option>
+                                            <option value="CT">Suma</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -311,14 +291,14 @@
                             <label class="col-md-3">Tipo de planificacion</label>
                             <div class="col-md-9">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="customControlValidation1"
-                                        name="radio-stacked" required checked>
-                                    <label class="custom-control-label" for="customControlValidation1" >Doctor</label>
+                                    <input type="radio" class="custom-control-input" id="doctor"
+                                        name="radio-stacked" required  value="Doctor">
+                                    <label class="custom-control-label " for="doctor">Doctor</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="customControlValidation2"
-                                        name="radio-stacked" required>
-                                    <label class="custom-control-label" for="customControlValidation2">Libre</label>
+                                    <input type="radio" class="custom-control-input" id="libre"
+                                        name="radio-stacked" required checked value="Libre">
+                                    <label class="custom-control-label" for="libre">Libre</label>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +321,7 @@
                             </div>
                         <div class="caja-marginTop">
                                 <button type="button" class="btn btn-outline-secondary btnRegister" id="cancelar">Cancelar</button>
-                                <button type="submit" class="btn btn-outline-primary  btnRegister">Guardar</button>
+                                <button type="button" class="btn btn-outline-primary  btnRegister" id="guardar">Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -385,6 +365,10 @@
     <script src="./assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
     <script src="./assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
     <script src="./assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+
+    <script src="./dist/js/planificacion.js"></script>
+
+    <script src="./dist/js/sweetalert2@8.js"></script>
 
 
     <script>

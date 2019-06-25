@@ -1,6 +1,8 @@
 // variables globalse 
 const op = document.querySelector('#operaciones');
 const num = document.querySelector('#numeros');
+const num2 = document.querySelector('#numeros2');
+
 
 let numero1 = 0;
 let numero2 = 0;
@@ -26,18 +28,38 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
     let suma = numero1 + numero2;
     if(resultado === suma){
-        alert('correcto');
-        setTimeout(() => {
-            generarNumeros();
-            numerosDinamicos(); 
-        }, 1000);
+        // alert('correcto');
+        // setTimeout(() => {
+        //     generarNumeros();
+        //     numerosDinamicos(); 
+        // }, 1000);
+        Swal.fire({
+            title: 'Correcto',
+            type: 'success',
+            html: 'Bien Hecho',
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Listo',
+            showConfirmButton: false,
+            timer: 1000
+        })
+        generarNumeros();
+        numerosDinamicos(); 
 
     }else{
-        alert('incorrecto el resultado es:' + suma);
-        setTimeout(() => {
-            generarNumeros();
-            numerosDinamicos(); 
-        }, 1000);
+        // alert('incorrecto el resultado es:' + suma);
+        // setTimeout(() => {
+        //     generarNumeros();
+        //     numerosDinamicos(); 
+        // }, 1000);
+        Swal.fire({
+            title: 'Fallaste',
+            type: 'error',
+            html: `incorrecto el resultado es: ${suma}`,
+            confirmButtonText: '<i class="fa fa-thumbs-down"></i> Siguiente',
+            showConfirmButton: false,
+            timer: 1000
+        })
+        generarNumeros();
+        numerosDinamicos(); 
     }
 };
 
@@ -57,11 +79,9 @@ const generarNumeros = () => {
             suma = numero1 + numero2; 
             console.log(suma);
         }else{
-            op.innerHTML = `<img  src="./game/calculo/${numero1}.jpg"  width="20" height="20">
-            <br>
-            <label for="suma"><h4>+</h4></label>
-            <img  src="./game/calculo/${numero2}.jpg" width="20" height="20">
-            <br>
+            op.innerHTML = `<img class="numpregunta" src="./game/calculo/${numero1}.jpg" >
+            <label class="simbolo" for="suma">+</label>
+            <img class="numpregunta" src="./game/calculo/${numero2}.jpg">
             <div id="div1"></div>`;
             bool = false;
         }
@@ -72,10 +92,17 @@ const generarNumeros = () => {
 
 const numerosDinamicos = ()=>{
     let numeros = '';
+    let numeros2 = '';
+
     for (let i = 0; i < 10; i++) {
-    numeros+=` <img id="${i}" src="./game/calculo/${i}.jpg" width="20" height="20">`
+        if(i < 5){
+            numeros+=` <img  class="imgSelect-" id="${i}" src="./game/calculo/${i}.jpg">`
+        }else{
+            numeros2+=` <img  class="imgSelect-" id="${i}" src="./game/calculo/${i}.jpg">`
+        }
     }
     num.innerHTML= numeros;
+    num2.innerHTML= numeros2;    
 }
 
 document.addEventListener('DOMContentLoaded',()=>{

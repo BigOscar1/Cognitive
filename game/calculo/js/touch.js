@@ -51,8 +51,8 @@ function stop() {
 
   // console.log('Aciertos:', aciertos, 'Fallidos', fallidos, 'Omitidos:', omitidos, 'time session:',
   //     tiempo, 'max:', tiempoMax, 'min:', tiempoMin, 'promedio:', ((tiempoMax + tiempoMin) / 2));
-  alert('Aciertos:' + aciertos + 'Fallidos' + fallidos +  'Omitidos:' + omitidos + 'time session:' +
-    tiempo + 'max:' + tiempoMax + 'min:' + tiempoMin + 'promedio:' + ((tiempoMax + tiempoMin) / 2));
+  // alert('Aciertos:' + aciertos + 'Fallidos' + fallidos +  'Omitidos:' + omitidos + 'time session:' +
+  //   tiempo + 'max:' + tiempoMax + 'min:' + tiempoMin + 'promedio:' + ((tiempoMax + tiempoMin) / 2));
 
   // sessionStorage.setItem('DatosAtencion', JSON.stringify(datosAtencion));
 
@@ -129,10 +129,27 @@ function onDeviceReady() {
         if (intentos === 5) {
           stopTime();
           stop();
-          alert('Juego Terminado ' + 'session:' + tiempo);
+          // alert('Juego Terminado ' + 'session:' + tiempo);
+          Swal.fire({
+            title: 'Terminado',
+            imageUrl: './dist/gif/goku.gif',
+            confirmButtonText: '<i class=""></i> Resultados',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        setTimeout(function(){ 
+          location.href = "grafica.html"
+      }, 2000);
         } else {
           promedio();
-          alert('correcto');
+          Swal.fire({
+            title: 'Correcto',
+            type: 'success',
+            html: 'Bien Hecho',
+            confirmButtonText: '<i class="fa fa-thumbs-up"></i> Listo',
+            showConfirmButton: false,
+            timer: 1000
+        })
           aciertos++;
           setTimeout(() => {
             generarNumeros();
@@ -145,12 +162,29 @@ function onDeviceReady() {
 
       } else {
         ++intentos;
-        alert('incorrecto el resultado es:' + suma);
+        Swal.fire({
+          title: 'Fallaste',
+          type: 'error',
+          html: `incorrecto el resultado es: ${suma}`,
+          confirmButtonText: '<i class="fa fa-thumbs-down"></i> Siguiente',
+          showConfirmButton: false,
+          timer: 1000
+      })
         fallidos++;
         if (intentos === 5) {
           stop();
           stopTime();
-          alert('Juego Terminado ' + 'session:' + tiempo);
+          // alert('Juego Terminado ' + 'session:' + tiempo);
+          Swal.fire({
+            title: 'Terminado',
+            imageUrl: './dist/gif/goku.gif',
+            confirmButtonText: '<i class=""></i> Resultados',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        setTimeout(function(){ 
+          location.href = "grafica.html"
+      }, 2000);
         } else {
           promedio();
           setTimeout(() => {

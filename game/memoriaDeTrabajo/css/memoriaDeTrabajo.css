@@ -18,7 +18,7 @@ table {
 td {
     width: 25%;
     height: 25%;
-    background-color: black;
+    background-color: hsla(24,100%,70%,.8);
     border: 3px solid black;
     border-radius: 5px;
 }

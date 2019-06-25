@@ -1,3 +1,6 @@
+let color1 = 'hsla(24,100%,50%,.8)'
+let color2 = 'hsla(116,100%,50%,.8)'
+
 let cartas = new Array({
     nombre: '1',
     seleccion: false
@@ -157,7 +160,7 @@ function resetearJuego() {
         let dato = document.getElementById(i.toString());
         dato.dataset.valor = carta;
         dato.style.pointerEvents = "auto";
-        colorCambio(i, 'black', '?');
+        colorCambio(i, color1, '?');
     }
     vaciar();
     mostar();
@@ -185,7 +188,7 @@ function girarCarta() {
             cartas[parseInt(identificadorJ2)].seleccion = true;
             document.getElementById(identificadorJ1).style.pointerEvents = "none";
             document.getElementById(identificadorJ2).style.pointerEvents = "none";
-            colorCambio(identificadorJ2, "blue", jugada2);
+            colorCambio(identificadorJ2, color2, jugada2);
             vaciar();
             comprobar();
             resetTime();
@@ -194,17 +197,17 @@ function girarCarta() {
             console.log('fallidos:', fallidos);
             document.getElementById(identificadorJ1).style.pointerEvents = "auto";
             setTimeout(function () {
-                colorCambio(identificadorJ1, "black", "?")
-                colorCambio(identificadorJ2, "black", "?")
+                colorCambio(identificadorJ1, color1, "?")
+                colorCambio(identificadorJ2, color1, "?")
                 vaciar();
                 resetTime();
             }, 200);
 
-            colorCambio(identificadorJ2, "blue", jugada2);
+            colorCambio(identificadorJ2, color2, jugada2);
         }
     } else if (jugada2 !== "valor") {
         initTime();
-        colorCambio(identificadorJ2, "blue", jugada2);
+        colorCambio(identificadorJ2, color2, jugada2);
         jugada1 = jugada2;
         identificadorJ1 = identificadorJ2;
         document.getElementById(identificadorJ2).style.pointerEvents = "none";
@@ -264,7 +267,7 @@ function mostar() {
             const elemento = document.getElementById(`${i}`);
             const id = elemento.id;
             const valor = elemento.dataset.valor
-            colorCambio(id, "blue", valor);
+            colorCambio(id, color2, valor);
         }
     }, 200);
 }
@@ -274,7 +277,7 @@ function ocultar() {
     for (let i = 0; i < 16; i++) {
         const elemento = document.getElementById(`${i}`);
         const id = elemento.id;
-        colorCambio(id, "black", '?');
+        colorCambio(id, color1, '?');
     }
     // }, 1000);
 }

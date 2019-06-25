@@ -25,20 +25,22 @@ let tiempoPro = 0;
 //funciones
 
 function init() {
-    cronometro = setInterval(function() { timer() }, 1000);
+    cronometro = setInterval(function () {
+        timer()
+    }, 1000);
     console.log(cronometro);
 }
- 
-  function timer() {
-       tiempo++;
-       console.log(tiempo);
-  }
- 
-  function reset() {
-        tiempo = 0;
-  }
- 
-  function stop() {
+
+function timer() {
+    tiempo++;
+    console.log(tiempo);
+}
+
+function reset() {
+    tiempo = 0;
+}
+
+function stop() {
     let datosAtencion = {
         Aciertos: aciertos,
         Fallidos: fallidos,
@@ -48,34 +50,36 @@ function init() {
         TiempoMinimo: tiempoMin,
         TiempoPromedio: tiempoPro
     }
-    
+
     clearInterval(cronometro);
 
-    console.log('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
-                tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
+    console.log('Aciertos:', aciertos, 'Fallidos', fallidos, 'Omitidos:', omitidos, 'time session:',
+        tiempo, 'max:', tiempoMax, 'min:', tiempoMin, 'promedio:', ((tiempoMax + tiempoMin) / 2));
     // alert('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
     // tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
 
     sessionStorage.setItem('DatosAtencion', JSON.stringify(datosAtencion));
 
-  }
+}
 
-  function initTime(){
-    cronometroT = setInterval(function() { timerTime() },1000);
-  }
+function initTime() {
+    cronometroT = setInterval(function () {
+        timerTime()
+    }, 1000);
+}
 
-  function timerTime(){
-      tiempoT++;
-      console.log('Time:',tiempoT);
-  }
+function timerTime() {
+    tiempoT++;
+    console.log('Time:', tiempoT);
+}
 
-  function resetTime(){
+function resetTime() {
     tiempoT = 0;
-  }
+}
 
-  function stopTime(){
-      clearInterval(cronometroT)
-  }
+function stopTime() {
+    clearInterval(cronometroT)
+}
 
 
 
@@ -131,7 +135,7 @@ const llenarDatos = () => {
                 nombre = generateName();
                 control.push(nombre);
                 div += `<div class="item">${nombre}</div>`;
-                
+
             } else {
                 control.push(nombre);
                 div += `<div class="item">${nombre}</div>`;
@@ -141,7 +145,7 @@ const llenarDatos = () => {
     }
 
     randonName.innerHTML = div;
-    
+
 }
 
 const obtenerNombre = async () => {
@@ -222,36 +226,34 @@ function opcion(obj) {
 
         }
         console.log(respuesta);
-        respuesta ? (contador++, aciertos++, 
+        respuesta ? (contador++, aciertos++,
             Swal.fire({
                 title: 'Correcto',
                 type: 'success',
                 html: 'Bien Hecho',
-                confirmButtonText:'<i class="fa fa-thumbs-up"></i> Listo',
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Listo',
                 showConfirmButton: false,
                 timer: 1000
             })
-            ) : (fallidos++, contador++, 
-                Swal.fire({
-                    title: 'Fallido',
-                    type: 'error',
-                    html: 'Fallaste',
-                    confirmButtonText:'<i class="fa fa-thumbs-down"></i> Siguiente',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-            );
+        ) : (fallidos++, contador++,
+            Swal.fire({
+                title: 'Fallido',
+                type: 'error',
+                html: 'Fallaste',
+                confirmButtonText: '<i class="fa fa-thumbs-down"></i> Siguiente',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        );
         if (contador === 5) {
             Swal.fire({
                 title: 'Terminado',
                 imageUrl: './dist/gif/goku.gif',
-                // imageWidth: 400,
-                // imageHeight: 200,   
-                confirmButtonText:'<i class=""></i> Resultados',
+                confirmButtonText: '<i class=""></i> Resultados',
                 showConfirmButton: false,
                 timer: 2000
             })
-            setTimeout(function(){ 
+            setTimeout(function () {
                 location.href = "grafica.html"
             }, 2000);
 
@@ -264,19 +266,17 @@ function opcion(obj) {
 
 
     } else if (res === 'omitir') {
-            contador++;
+        contador++;
         if (contador === 5) {
             omitidos++;
             Swal.fire({
                 title: 'Terminado',
                 imageUrl: './dist/gif/goku.gif',
-                // imageWidth: 400,
-                // imageHeight: 200,   
-                confirmButtonText:'<i class=""></i> Resultados',
+                confirmButtonText: '<i class=""></i> Resultados',
                 showConfirmButton: false,
                 timer: 2000
             })
-            setTimeout(function(){ 
+            setTimeout(function () {
                 location.href = "grafica.html"
             }, 2000);
             promedio();
@@ -286,7 +286,7 @@ function opcion(obj) {
             promedio();
             reiniciar();
         }
-    
+
     } else {
         for (let i = 0; i < control.length; i++) {
             if (nombreSelec === control[i]) {
@@ -297,60 +297,46 @@ function opcion(obj) {
             }
 
         }
-        respuesta ? (fallidos++,contador++,
+        respuesta ? (fallidos++, contador++,
             Swal.fire({
                 title: 'Fallido',
                 type: 'error',
                 html: 'Fallaste',
-                confirmButtonText:'<i class="fa fa-thumbs-down"></i> Siguiente',
+                confirmButtonText: '<i class="fa fa-thumbs-down"></i> Siguiente',
                 showConfirmButton: false,
                 timer: 1000
             })
-            ) : (contador++,aciertos++,
-                Swal.fire({
-                    title: 'Correcto',
-                    type: 'success',
-                    html: 'Bien Hecho',
-                    confirmButtonText:'<i class="fa fa-thumbs-up"></i> Listo',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-            );
-        if(contador === 5){
+        ) : (contador++, aciertos++,
+            Swal.fire({
+                title: 'Correcto',
+                type: 'success',
+                html: 'Bien Hecho',
+                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Listo',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        );
+        if (contador === 5) {
             Swal.fire({
                 title: 'Terminado',
                 imageUrl: './dist/gif/goku.gif',
                 // imageWidth: 400,
                 // imageHeight: 200,   
-                confirmButtonText:'<i class=""></i> Resultados',
+                confirmButtonText: '<i class=""></i> Resultados',
                 showConfirmButton: false,
                 timer: 2000
             })
-            setTimeout(function(){ 
+            setTimeout(function () {
                 location.href = "grafica.html"
             }, 2000);
             promedio();
             stop();
-        }else{
+        } else {
             promedio();
             reiniciar();
         }
     }
 }
-// window.onclick = function(){
-//     Swal.fire({
-//         title: 'Terminado',
-//         imageUrl: './dist/gif/goku.gif',
-//         // imageWidth: 400,
-//         // imageHeight: 200,   
-//         confirmButtonText:'<i class=""></i> Resultados',
-//         showConfirmButton: false,
-//         timer: 2000
-//     })
-// }
-// setTimeout(function(){ 
-//     window.location = "../../../grafica.html"
-// }, 2000);
 
 function nivel() {
 
@@ -366,11 +352,11 @@ function nivel() {
             <div class="item1" id="omitir" onclick="opcion(this)">OMITIR</div>`;
             initTime();
         }, 5000);
-        
+
     } catch (error) {
         console.log(error);
         initTime();
-        
+
     }
 
 }
@@ -388,20 +374,22 @@ function reiniciar() {
     }, 1000);
 }
 
-function promedio(){
-    stopTime();    
-    if((tiempoMax !== 0)  && (tiempoMin !== 0)){
-        if(tiempoT > tiempoMax ){
+function promedio() {
+    stopTime();
+    if (tiempoT !== 0) {
+        if ((tiempoMax !== 0) && (tiempoMin !== 0)) {
+            if (tiempoT > tiempoMax) {
+                tiempoMax = tiempoT;
+            } else if (tiempoT < tiempoMin) {
+                tiempoMin = tiempoT;
+            }
+
+        } else {
             tiempoMax = tiempoT;
-        }else if(tiempoT < tiempoMin){
             tiempoMin = tiempoT;
         }
-
-    }else{
-        tiempoMax = tiempoT;
-        tiempoMin = tiempoT;
+        tiempoPro = (tiempoMax + tiempoMin) / 2;
+        console.log('max:', tiempoMax, 'min:', tiempoMin);
+        console.log('Tiempo Promedio: ' + tiempoPro);
     }
-    tiempoPro = (tiempoMax + tiempoMin)/2;
-    console.log('max:',tiempoMax,'min:',tiempoMin);
-    console.log('Tiempo Promedio: '+ tiempoPro);
 }

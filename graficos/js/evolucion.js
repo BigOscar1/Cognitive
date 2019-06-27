@@ -1,6 +1,21 @@
 var evolucion = document.getElementById('evolucion').getContext('2d');
 
+let resultado  = [];
+let puntuacion = [];
+let numero = [];
 
+puntuacion.push(0);
+
+
+let session = sessionStorage.getItem('Datos');
+let json = JSON.parse(session)
+      json.forEach((x,index)=> {
+        resultado.push(x);
+        puntuacion.push(x.Aciertos * 20);    //para que muestre en el grafico
+        numero.push(index);
+      });
+
+numero.push(numero.length);
 
 generarGrafica = (resultados) => {
     let valor = '';
@@ -9,7 +24,7 @@ generarGrafica = (resultados) => {
         data: {
             datasets: [{
                 label: 'Resultados',
-                data: [25,40,43,56,50],
+                data: puntuacion,
                 backgroundColor: [
                     'rgba(255, 162, 0, 0)',
                     'rgba(255, 162, 0, 1)',
@@ -18,7 +33,7 @@ generarGrafica = (resultados) => {
                     'rgba(255, 162, 0, 1)',                    
                 ],
             }],
-            labels: ['January', 'February', 'March', 'April','mayo']
+            labels: numero
         },
         options: {
             scales: {

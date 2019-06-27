@@ -19,7 +19,7 @@ let tiempoMax = 0;
 let tiempoMin = 0;
 let promedioT = 0;
 let tiempoPro = 0;
-
+let array = [];
 
 
 //funciones
@@ -41,7 +41,7 @@ function reset() {
 }
 
 function stop() {
-    let datosAtencion = {
+    let datosAtencion = [{
         Aciertos: aciertos,
         Fallidos: fallidos,
         Omitidos: omitidos,
@@ -49,7 +49,7 @@ function stop() {
         TiempoMaximo: tiempoMax,
         TiempoMinimo: tiempoMin,
         TiempoPromedio: tiempoPro
-    }
+    }]
 
     clearInterval(cronometro);
 
@@ -57,8 +57,30 @@ function stop() {
         tiempo, 'max:', tiempoMax, 'min:', tiempoMin, 'promedio:', ((tiempoMax + tiempoMin) / 2));
     // alert('Aciertos:',aciertos,'Fallidos',fallidos,'Omitidos:',omitidos,'time session:',
     // tiempo,'max:',tiempoMax,'min:',tiempoMin,'promedio:',((tiempoMax + tiempoMin)/2));
-
-    sessionStorage.setItem('DatosAtencion', JSON.stringify(datosAtencion));
+    let session = sessionStorage.getItem('Datos');
+    if(session === null){
+        sessionStorage.setItem('Datos', JSON.stringify(datosAtencion) );
+    }else{
+        let json = JSON.parse(session)
+        // json.forEach(x => {
+        //   array.push(x);
+        // });
+        let datosAtencion1 = {
+            Aciertos: aciertos,
+            Fallidos: fallidos,
+            Omitidos: omitidos,
+            TiempoSesion: tiempo,
+            TiempoMaximo: tiempoMax,
+            TiempoMinimo: tiempoMin,
+            TiempoPromedio: tiempoPro
+        }
+        for (let i = 0; i < json.length; i++) {
+            array.push(json[i]);
+          }
+        array.push(datosAtencion1);
+        sessionStorage.setItem('Datos', JSON.stringify(array) );
+    }
+   
 
 }
 

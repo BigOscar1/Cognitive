@@ -16,7 +16,7 @@ let aciertos = 0;
 let fallidos = 0;
 let omitidos = 0;
 let intentos = 0;
-
+let array = [];
 
 
 
@@ -37,15 +37,15 @@ function reset() {
 }
 
 function stop() {
-  // let datosAtencion = {
-  //     Aciertos: aciertos,
-  //     Fallidos: fallidos,
-  //     Omitidos: omitidos,
-  //     TiempoSesion: tiempo,
-  //     TiempoMaximo: tiempoMax,
-  //     TiempoMinimo: tiempoMin,
-  //     TiempoPromedio: tiempoPro
-  // }
+  let datosCalculo = [{
+      Aciertos: aciertos,
+      Fallidos: fallidos,
+      Omitidos: omitidos,
+      TiempoSesion: tiempo,
+      TiempoMaximo: tiempoMax,
+      TiempoMinimo: tiempoMin,
+      TiempoPromedio: tiempoPro
+  }]
 
   clearInterval(cronometro);
 
@@ -53,8 +53,31 @@ function stop() {
   //     tiempo, 'max:', tiempoMax, 'min:', tiempoMin, 'promedio:', ((tiempoMax + tiempoMin) / 2));
   // alert('Aciertos:' + aciertos + 'Fallidos' + fallidos +  'Omitidos:' + omitidos + 'time session:' +
   //   tiempo + 'max:' + tiempoMax + 'min:' + tiempoMin + 'promedio:' + ((tiempoMax + tiempoMin) / 2));
-
-  // sessionStorage.setItem('DatosAtencion', JSON.stringify(datosAtencion));
+  let session = sessionStorage.getItem('Datos');
+  if(session === null){
+      sessionStorage.setItem('Datos', JSON.stringify(datosCalculo) );
+  }else{
+  
+      let json = JSON.parse(session)
+      // json.forEach(x => {
+      //   array.push(x);
+      // });
+      for (let i = 0; i < json.length; i++) {
+          
+        array.push(json[i]);
+      }
+      let datosCalculo1 = {
+        Aciertos: aciertos,
+        Fallidos: fallidos,
+        Omitidos: omitidos,
+        TiempoSesion: tiempo,
+        TiempoMaximo: tiempoMax,
+        TiempoMinimo: tiempoMin,
+        TiempoPromedio: tiempoPro
+    }
+      array.push(datosCalculo1);
+      sessionStorage.setItem('Datos', JSON.stringify(array) );
+  }
 
 }
 
@@ -125,7 +148,7 @@ function onDeviceReady() {
       document.getElementById(data).style.display = 'none';
       let suma = numero1 + numero2;
       if (result === suma) {
-        ++intentos;
+        intentos++;
         if (intentos === 5) {
           stopTime();
           stop();
@@ -161,7 +184,7 @@ function onDeviceReady() {
 
 
       } else {
-        ++intentos;
+        intentos++;
         Swal.fire({
           title: 'Fallaste',
           type: 'error',

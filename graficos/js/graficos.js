@@ -5,11 +5,17 @@
     let PuntuacionTotal = 0;
     let valor = 0;
 
-  let datos = JSON.parse(sessionStorage.getItem("DatosAtencion"));
-    console.log(datos);
-    datosAciertos[1] = datos.Aciertos; 
-    datosError[1] = datos.Fallidos;
-    datosOmision[1] = datos.Omitidos;
+    let ps = 0;
+
+console.log(JSON.parse(sessionStorage.getItem("Datos")))
+
+  let datos = [JSON.parse(sessionStorage.getItem("Datos"))];
+    // console.log(datos);
+
+    ps =  datos[0].length;
+    datosAciertos[1] = datos[0][ps - 1].Aciertos; 
+    datosError[1] = datos[0][ps - 1].Fallidos;
+    datosOmision[1] = datos[0][ps - 1].Omitidos;
     
 puntuacion = (bien,mal,omision) => {
     iteraciones = 0;
@@ -42,7 +48,7 @@ tiempo = (total,promedio,maximo,minimo) => {
 
 
 puntuacion(datosAciertos[1],datosError[1],datosOmision[1]);
-tiempo(datos.TiempoSesion,datos.TiempoPromedio,datos.TiempoMaximo,datos.TiempoMinimo);
+tiempo(datos[0][ps -1].TiempoSesion,datos[0][ps -1].TiempoPromedio,datos[0][ps -1].TiempoMaximo,datos[0][ps -1].TiempoMinimo);
 
 
 animacion = () => {
